@@ -20,7 +20,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: 'Discover why top tech startups and luxury brands are migrating from legacy WordPress sites to headless React / Next.js architecture to achieve 99+ Lighthouse scores and 3x higher conversion rates.',
     category: 'Web Engineering',
     author: {
-      name: 'Nabeela (Nab)',
+      name: 'Nabeela',
       role: 'Founder & Full Stack Architect',
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80'
     },
@@ -64,7 +64,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: 'Learn how integrating custom OpenAI & Gemini vector agents into your web apps can automate 70% of customer support and lead qualification.',
     category: 'AI & Automation',
     author: {
-      name: 'Nabeela (Nab)',
+      name: 'Nabeela',
       role: 'Founder & Full Stack Architect',
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80'
     },
