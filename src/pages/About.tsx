@@ -73,7 +73,7 @@ export const About: React.FC = () => {
             Founder & Architect Story
           </span>
           <h3 className="text-3xl sm:text-4xl font-black text-slate-950 dark:text-white font-heading">
-            Meet Nabeela (Nab)
+            Meet Nabeela
           </h3>
           <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-purple-500/30 bg-purple-500/10 text-[#6D28D9] dark:text-[#C084FC] text-xs font-extrabold uppercase tracking-wider">
             Founder & Innovation Architect of NabVerse
@@ -98,13 +98,13 @@ export const About: React.FC = () => {
             <div className="w-full h-full rounded-full overflow-hidden bg-slate-900">
               <img
                 src="/images/profile_pic.jpeg"
-                alt="Nabeela (Nab) — Founder & Innovation Architect"
+                alt="Nabeela — Founder & Innovation Architect"
                 className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
               />
             </div>
           </div>
           <div className="space-y-1">
-            <h4 className="text-xl font-black text-slate-950 dark:text-white font-heading">Nabeela (Nab)</h4>
+            <h4 className="text-xl font-black text-slate-950 dark:text-white font-heading">Nabeela</h4>
             <span className="text-xs text-[#0284C7] dark:text-[#00F2FE] font-black uppercase tracking-wider block font-heading">
               Founder & Innovation Architect
             </span>

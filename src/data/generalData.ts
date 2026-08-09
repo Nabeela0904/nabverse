@@ -144,7 +144,7 @@ export const TESTIMONIALS = [
 ];
 
 export const AGENCY_STATS = [
-  { value: '150+', label: 'Digital Projects Delivered' },
+  { value: '15-Day', label: 'Post Launch Support' },
   { value: '99.8%', label: 'On-Time SLA Delivery' },
   { value: '3.4x', label: 'Average Client Lead Lift' },
   { value: '95+', label: 'Lighthouse Performance Score' }
