@@ -9,8 +9,10 @@ import { InteractiveBiDemo } from '../components/tools/InteractiveBiDemo';
 import { RoiCalculator } from '../components/tools/RoiCalculator';
 import { StatsCounter } from '../components/common/StatsCounter';
 import { TestimonialsCarousel } from '../components/common/TestimonialsCarousel';
+import { useCurrency } from '../context/CurrencyContext';
 
 export const Home: React.FC = () => {
+  const { formatPrice } = useCurrency();
   const [activeFaq, setActiveFaq] = useState<number | null>(0);
   const [activeToolTab, setActiveToolTab] = useState<'calculator' | 'bi-demo' | 'roi'>('calculator');
 
@@ -239,7 +241,7 @@ export const Home: React.FC = () => {
                     <div className="p-3 rounded-2xl bg-slate-100 dark:bg-[#0A0F1D] border border-slate-200 dark:border-slate-800 text-[#0284C7] dark:text-[#00F2FE] group-hover:scale-110 transition-transform">
                       <Code className="w-6 h-6" />
                     </div>
-                    <span className="text-xs font-bold text-slate-600 dark:text-slate-400">Starting from <span className="text-slate-950 dark:text-white font-heading font-black text-sm">${service.priceStarting}</span></span>
+                    <span className="text-xs font-bold text-slate-600 dark:text-slate-400">Starting from <span className="text-slate-950 dark:text-white font-heading font-black text-sm">{formatPrice(service.priceStarting)}</span></span>
                   </div>
 
                   <h3 className="text-xl font-black text-slate-950 dark:text-white font-heading mb-3 group-hover:text-[#0284C7] dark:group-hover:text-[#00F2FE] transition-colors">

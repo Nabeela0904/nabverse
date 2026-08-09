@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { SERVICES_DATA } from '../data/servicesData';
 import { ArrowRight, CheckCircle2, ShieldCheck, Code, Database, Zap } from 'lucide-react';
+import { useCurrency } from '../context/CurrencyContext';
 
 export const ServicesOverview: React.FC = () => {
+  const { formatPrice } = useCurrency();
   return (
     <div className="container-custom pb-24 space-y-16" style={{ paddingTop: '200px' }}>
       {/* Header */}
@@ -48,7 +50,7 @@ export const ServicesOverview: React.FC = () => {
             <div className="space-y-4 pt-4 border-t border-slate-200 dark:border-slate-800">
               <div className="flex justify-between items-center text-xs">
                 <span className="text-slate-600 dark:text-slate-400 font-bold">Investment Starts:</span>
-                <span className="text-slate-950 dark:text-white font-black font-heading text-sm">${service.priceStarting}</span>
+                <span className="text-slate-950 dark:text-white font-black font-heading text-sm">{formatPrice(service.priceStarting)}</span>
               </div>
 
               <div className="flex flex-wrap gap-1.5">

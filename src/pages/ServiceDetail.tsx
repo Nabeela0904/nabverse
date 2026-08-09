@@ -2,8 +2,10 @@ import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { SERVICES_DATA } from '../data/servicesData';
 import { ArrowRight, CheckCircle2, AlertCircle, Sparkles, ShieldCheck, Code, HelpCircle, PhoneCall, ChevronLeft } from 'lucide-react';
+import { useCurrency } from '../context/CurrencyContext';
 
 export const ServiceDetail: React.FC = () => {
+  const { formatPrice } = useCurrency();
   const { slug } = useParams<{ slug: string }>();
   const service = SERVICES_DATA.find((s) => s.slug === slug);
 
@@ -36,7 +38,7 @@ export const ServiceDetail: React.FC = () => {
           <div className="flex flex-wrap items-center gap-6 pt-4 text-xs font-bold text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800">
             <div>
               <span className="text-slate-600 dark:text-slate-400 block font-semibold">Investment Starting From</span>
-              <span className="text-2xl font-black text-slate-950 dark:text-white font-heading">${service.priceStarting} USD</span>
+              <span className="text-2xl font-black text-slate-950 dark:text-white font-heading">{formatPrice(service.priceStarting)}</span>
             </div>
           </div>
 
