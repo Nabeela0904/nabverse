@@ -24,7 +24,7 @@ export const PortfolioOverview: React.FC = () => {
       <div className="text-center space-y-4 max-w-3xl mx-auto">
         <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0284C7]/40 dark:border-[#00F2FE]/40 bg-cyan-500/15 text-[#0284C7] dark:text-[#00F2FE] text-xs font-extrabold uppercase tracking-widest backdrop-blur-md shadow-[0_0_15px_rgba(0,242,254,0.2)]">
           <span className="w-2 h-2 rounded-full bg-[#0284C7] dark:bg-[#00F2FE] shadow-[0_0_8px_#00F2FE]" />
-          14 Featured Client Case Studies
+          6 Featured Client Case Studies
         </span>
         <h1 className="text-4xl sm:text-6xl font-black text-slate-950 dark:text-white font-heading leading-tight pt-2">
           Engineered for Performance. Proven by Profit.
@@ -96,7 +96,7 @@ export const PortfolioOverview: React.FC = () => {
                   className="py-3 px-4 rounded-xl bg-[#0284C7] dark:bg-[#00F2FE] text-white dark:text-slate-950 font-black text-xs transition-all flex items-center gap-1.5 shadow-md shrink-0 hover:opacity-90"
                   title="Launch Live Project Site"
                 >
-                  <span>Live Site</span>
+                  <span>{project.liveUrl.includes('github.com') ? 'GitHub Code' : 'Live Site'}</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
               )}

@@ -294,7 +294,7 @@ export const Home: React.FC = () => {
               to="/portfolio"
               className="text-xs sm:text-sm font-extrabold text-[#0284C7] dark:text-[#00F2FE] hover:underline flex items-center gap-1.5 shrink-0"
             >
-              <span>Explore All 13 Case Studies</span>
+              <span>Explore All 6 Case Studies</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

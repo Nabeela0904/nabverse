@@ -46,7 +46,7 @@ export const ProjectDetail: React.FC = () => {
                 rel="noopener noreferrer"
                 className="btn-primary inline-flex items-center gap-2 !py-3 !px-6"
               >
-                <span>Launch Live Project Site</span>
+                <span>{project.liveUrl.includes('github.com') ? 'Explore GitHub Repository' : 'Launch Live Project Site'}</span>
                 <ExternalLink className="w-4 h-4" />
               </a>
             </div>
