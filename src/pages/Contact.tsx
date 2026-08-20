@@ -19,6 +19,22 @@ export const Contact: React.FC = () => {
     if (formData.name && formData.email) {
       setSubmitted(true);
       confetti({ particleCount: 70, spread: 80, origin: { y: 0.7 } });
+
+      const mailSubject = encodeURIComponent(`New Studio Inquiry from ${formData.name}`);
+      const mailBody = encodeURIComponent(
+        `NEW STUDIO INQUIRY\n` +
+        `----------------------------------------\n` +
+        `Name: ${formData.name}\n` +
+        `Email: ${formData.email}\n` +
+        `Phone: ${formData.phone || 'N/A'}\n` +
+        `Company: ${formData.company || 'N/A'}\n` +
+        `Service Category: ${formData.service}\n` +
+        `Budget Tier: ${formData.budget}\n` +
+        `Project Notes:\n${formData.message}\n\n` +
+        `Sent to: nabverse8@gmail.com`
+      );
+
+      window.open(`mailto:nabverse8@gmail.com?subject=${mailSubject}&body=${mailBody}`, '_blank');
     }
   };
 

@@ -1,20 +1,105 @@
 import React, { useState } from 'react';
-import { Calendar, Clock, CheckCircle2, ShieldCheck, ArrowRight, Video, User } from 'lucide-react';
+import { Calendar as CalendarIcon, Clock, CheckCircle2, ShieldCheck, ArrowRight, Video, User, Download, ExternalLink, Mail } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 export const BookConsultation: React.FC = () => {
-  const [selectedTime, setSelectedTime] = useState<string | null>('10:00 AM');
+  const [selectedTime, setSelectedTime] = useState<string>('10:00 AM');
   const [selectedDate, setSelectedDate] = useState<string>('Tomorrow');
   const [booked, setBooked] = useState(false);
-  const [clientInfo, setClientInfo] = useState({ name: '', email: '', company: '' });
+  const [clientInfo, setClientInfo] = useState({ name: '', email: '', company: '', message: '' });
 
   const times = ['09:00 AM', '10:00 AM', '01:30 PM', '03:00 PM', '04:30 PM'];
+
+  // Helper to calculate target Date object
+  const getEventDates = () => {
+    const now = new Date();
+    const eventDate = new Date();
+    if (selectedDate === 'Tomorrow') {
+      eventDate.setDate(now.getDate() + 1);
+    } else if (selectedDate === 'In 2 Days') {
+      eventDate.setDate(now.getDate() + 2);
+    }
+
+    const [timeStr, modifier] = selectedTime.split(' ');
+    let [hours, minutes] = timeStr.split(':').map(Number);
+    if (modifier === 'PM' && hours < 12) hours += 12;
+    if (modifier === 'AM' && hours === 12) hours = 0;
+
+    eventDate.setHours(hours, minutes, 0, 0);
+    const endDate = new Date(eventDate.getTime() + 30 * 60 * 1000); // 30 mins session
+
+    return { eventDate, endDate };
+  };
+
+  // Google Calendar URL generator
+  const getGoogleCalendarUrl = () => {
+    const { eventDate, endDate } = getEventDates();
+    const formatIso = (d: Date) => d.toISOString().replace(/-|:|\.\d\d\d/g, '');
+
+    const title = encodeURIComponent('1-on-1 Strategy Session with Nabeela (NabVerse)');
+    const details = encodeURIComponent(
+      `1-on-1 Technical Strategy Session with Nabeela (NabVerse)\n` +
+      `Client Name: ${clientInfo.name}\n` +
+      `Client Email: ${clientInfo.email}\n` +
+      `Company: ${clientInfo.company || 'N/A'}\n` +
+      `Meeting Link: Sent via email / Google Meet`
+    );
+    const location = encodeURIComponent('Google Meet / Video Call');
+
+    return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${formatIso(eventDate)}/${formatIso(endDate)}&details=${details}&location=${location}`;
+  };
+
+  // .ics Calendar file generator
+  const handleDownloadIcs = () => {
+    const { eventDate, endDate } = getEventDates();
+    const formatIso = (d: Date) => d.toISOString().replace(/-|:|\.\d\d\d/g, '');
+
+    const icsContent = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'PRODID:-//NabVerse//1-on-1 Strategy Session//EN',
+      'BEGIN:VEVENT',
+      'SUMMARY:1-on-1 Strategy Session with Nabeela (NabVerse)',
+      `DESCRIPTION:1-on-1 Technical Strategy Session with Nabeela for ${clientInfo.name}`,
+      'LOCATION:Google Meet / Video Call',
+      `DTSTART:${formatIso(eventDate)}`,
+      `DTEND:${formatIso(endDate)}`,
+      'STATUS:CONFIRMED',
+      'END:VEVENT',
+      'END:VCALENDAR'
+    ].join('\r\n');
+
+    const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+    const link = document.createElement('a');
+    link.href = window.URL.createObjectURL(blob);
+    link.setAttribute('download', 'NabVerse_1on1_Strategy_Session.ics');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   const handleBook = (e: React.FormEvent) => {
     e.preventDefault();
     if (clientInfo.name && clientInfo.email) {
       setBooked(true);
       confetti({ particleCount: 80, spread: 90, origin: { y: 0.7 } });
+
+      // Construct mailto link to send email to nabverse8@gmail.com
+      const mailSubject = encodeURIComponent(`New 1:1 Booking Request: ${clientInfo.name}`);
+      const mailBody = encodeURIComponent(
+        `NEW 1:1 CONSULTATION BOOKING REQUEST\n` +
+        `----------------------------------------\n` +
+        `Client Name: ${clientInfo.name}\n` +
+        `Client Email: ${clientInfo.email}\n` +
+        `Company / Project: ${clientInfo.company || 'N/A'}\n` +
+        `Scheduled Date: ${selectedDate}\n` +
+        `Scheduled Time: ${selectedTime}\n` +
+        `Notes / Message: ${clientInfo.message || 'N/A'}\n\n` +
+        `Sent to: nabverse8@gmail.com`
+      );
+
+      // Open mailto link in window to trigger email dispatch
+      window.open(`mailto:nabverse8@gmail.com?subject=${mailSubject}&body=${mailBody}`, '_blank');
     }
   };
 
@@ -36,14 +121,50 @@ export const BookConsultation: React.FC = () => {
 
       <div className="max-w-4xl mx-auto">
         {booked ? (
-          <div className="card bg-white dark:bg-[#0F172A] p-12 text-center border border-emerald-500/40 space-y-6">
-            <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-[#00FF87] flex items-center justify-center mx-auto">
+          <div className="card bg-white dark:bg-[#0F172A] p-8 sm:p-12 text-center border border-emerald-500/40 space-y-8 shadow-2xl">
+            <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-[#00FF87] flex items-center justify-center mx-auto shadow-[0_0_20px_rgba(0,255,135,0.3)]">
               <CheckCircle2 className="w-10 h-10" />
             </div>
-            <h3 className="text-3xl font-black text-slate-950 dark:text-white font-heading">Strategy Session Confirmed!</h3>
-            <p className="text-sm text-slate-800 dark:text-slate-200 font-semibold max-w-md mx-auto">
-              Calendar invite and Google Meet link sent to <span className="text-[#0284C7] dark:text-[#00F2FE] font-black">{clientInfo.email}</span> for {selectedDate} at {selectedTime}.
-            </p>
+
+            <div className="space-y-3 max-w-lg mx-auto">
+              <h3 className="text-3xl font-black text-slate-950 dark:text-white font-heading">Strategy Session Confirmed!</h3>
+              <p className="text-sm text-slate-800 dark:text-slate-200 font-semibold">
+                Your 1:1 consultation with Nabeela is set for <span className="text-[#0284C7] dark:text-[#00F2FE] font-black">{selectedDate}</span> at <span className="text-[#0284C7] dark:text-[#00F2FE] font-black">{selectedTime}</span>.
+              </p>
+              <div className="p-3 rounded-xl bg-slate-100 dark:bg-[#0A0F1D] border border-slate-200 dark:border-slate-800 text-xs font-bold text-slate-700 dark:text-slate-300 flex items-center justify-center gap-2">
+                <Mail className="w-4 h-4 text-[#0284C7] dark:text-[#00F2FE]" />
+                <span>Booking notification sent to <strong className="text-slate-950 dark:text-white">nabverse8@gmail.com</strong> & <strong className="text-slate-950 dark:text-white">{clientInfo.email}</strong></span>
+              </div>
+            </div>
+
+            {/* CUSTOMER CALENDAR ACTIONS */}
+            <div className="p-6 rounded-2xl bg-slate-100 dark:bg-[#0A0F1D] border border-slate-200 dark:border-slate-800 space-y-4 max-w-md mx-auto">
+              <span className="text-xs font-extrabold uppercase tracking-wider text-slate-600 dark:text-slate-400 block font-heading">
+                📅 Add Session To Your Personal Calendar
+              </span>
+
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <a
+                  href={getGoogleCalendarUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 py-3 px-4 rounded-xl bg-[#0284C7] dark:bg-[#00F2FE] text-white dark:text-slate-950 text-xs font-black transition-all flex items-center justify-center gap-2 shadow-md hover:opacity-90"
+                >
+                  <CalendarIcon className="w-4 h-4" />
+                  <span>Google Calendar</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+
+                <button
+                  type="button"
+                  onClick={handleDownloadIcs}
+                  className="flex-1 py-3 px-4 rounded-xl bg-purple-600 text-white text-xs font-black transition-all flex items-center justify-center gap-2 shadow-md hover:bg-purple-700"
+                >
+                  <Download className="w-4 h-4" />
+                  <span>Apple / Outlook (.ics)</span>
+                </button>
+              </div>
+            </div>
           </div>
         ) : (
           <div className="card bg-white dark:bg-[#0F172A] p-8 sm:p-12 border border-slate-200 dark:border-slate-800 grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -72,7 +193,7 @@ export const BookConsultation: React.FC = () => {
               </div>
 
               <div className="space-y-3">
-                <label className="text-xs font-bold text-slate-600 dark:text-slate-400 block">Available Time Slots (EST)</label>
+                <label className="text-xs font-bold text-slate-600 dark:text-slate-400 block">Available Time Slots</label>
                 <div className="grid grid-cols-2 gap-2">
                   {times.map((t) => (
                     <button
@@ -90,6 +211,15 @@ export const BookConsultation: React.FC = () => {
                     </button>
                   ))}
                 </div>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-cyan-500/10 border border-[#0284C7]/30 dark:border-[#00F2FE]/30 space-y-2 text-xs">
+                <div className="flex items-center gap-2 text-[#0284C7] dark:text-[#00F2FE] font-black">
+                  <Video className="w-4 h-4" /> 1-on-1 Video Conference
+                </div>
+                <p className="text-slate-800 dark:text-slate-200 font-bold">
+                  Includes direct email dispatch to <strong>nabverse8@gmail.com</strong> and instant 1-click Google Calendar / .ics file sync for your calendar.
+                </p>
               </div>
             </div>
 
@@ -128,6 +258,17 @@ export const BookConsultation: React.FC = () => {
                   value={clientInfo.company}
                   onChange={(e) => setClientInfo({ ...clientInfo, company: e.target.value })}
                   placeholder="Apex Care Telehealth"
+                  className="w-full px-4 py-3 rounded-xl bg-white dark:bg-[#0A0F1D] text-slate-950 dark:text-white border border-slate-300 dark:border-slate-800 placeholder:text-slate-500 dark:placeholder:text-slate-400 font-bold text-xs focus:outline-none focus:border-[#0284C7] dark:focus:border-[#00F2FE]"
+                />
+              </div>
+
+              <div>
+                <label className="text-xs font-extrabold text-slate-800 dark:text-slate-200 block mb-1">Project Details / Goals</label>
+                <textarea
+                  rows={3}
+                  value={clientInfo.message}
+                  onChange={(e) => setClientInfo({ ...clientInfo, message: e.target.value })}
+                  placeholder="Briefly describe what you'd like to discuss during our strategy session..."
                   className="w-full px-4 py-3 rounded-xl bg-white dark:bg-[#0A0F1D] text-slate-950 dark:text-white border border-slate-300 dark:border-slate-800 placeholder:text-slate-500 dark:placeholder:text-slate-400 font-bold text-xs focus:outline-none focus:border-[#0284C7] dark:focus:border-[#00F2FE]"
                 />
               </div>
