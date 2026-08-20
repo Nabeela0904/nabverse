@@ -118,6 +118,14 @@ export const TESTIMONIALS = [
     rating: 5
   },
   {
+    quote: "Working with Nabeela was easily the best experience I’ve had with a freelance developer. From our first call, communication was clear, proactive, and jargon-free. I was never left guessing about timelines or progress. When standard templates couldn't handle our project's unique requirements, they built robust, custom coded features that run seamlessly and load at lightning speed. Their deep technical skill, combined with an exceptional eye for detail and reliability, made the entire build effortless. If you need clean, custom code and a developer who genuinely takes ownership of the outcome, look no further.",
+    author: "Suhail",
+    role: "Website Building Client",
+    company: "Custom Web Application",
+    useIcon: true,
+    rating: 5
+  },
+  {
     quote: "NabVerse didn't just build us a website; they transformed our entire digital acquisition pipeline. Direct online reservations jumped 215% and third-party fees were cut completely.",
     author: "Chef Antoine Laurent",
     role: "Executive Chef & Owner",
