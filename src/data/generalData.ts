@@ -138,7 +138,7 @@ export const TESTIMONIALS = [
     author: "Jonathan Sterling",
     role: "VP Corporate Communications",
     company: "Aegis Global Holdings",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+    useIcon: true,
     rating: 5
   },
   {

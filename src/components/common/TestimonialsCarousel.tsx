@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import { Star, ChevronLeft, ChevronRight, Quote, Building2 } from 'lucide-react';
 import { TESTIMONIALS } from '../../data/generalData';
 
 export const TestimonialsCarousel: React.FC = () => {
@@ -33,11 +33,17 @@ export const TestimonialsCarousel: React.FC = () => {
 
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-6 border-t border-slate-200 dark:border-slate-800/80">
         <div className="flex items-center gap-4">
-          <img
-            src={item.image}
-            alt={item.author}
-            className="w-14 h-14 rounded-full object-cover border-2 border-[#0284C7] dark:border-[#00F2FE] shadow-lg"
-          />
+          {(item as any).useIcon || !item.image ? (
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#0284C7]/20 via-[#6D28D9]/20 to-[#00F2FE]/20 border-2 border-[#0284C7] dark:border-[#00F2FE] flex items-center justify-center text-[#0284C7] dark:text-[#00F2FE] shadow-lg shrink-0">
+              <Building2 className="w-7 h-7" />
+            </div>
+          ) : (
+            <img
+              src={item.image}
+              alt={item.author}
+              className="w-14 h-14 rounded-full object-cover border-2 border-[#0284C7] dark:border-[#00F2FE] shadow-lg shrink-0"
+            />
+          )}
           <div>
             <h5 className="text-base font-black text-slate-950 dark:text-white font-heading">{item.author}</h5>
             <p className="text-xs font-bold text-slate-600 dark:text-slate-400 mt-0.5">
