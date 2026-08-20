@@ -29,7 +29,7 @@ export const Contact: React.FC = () => {
             Accept: 'application/json'
           },
           body: JSON.stringify({
-            access_key: '9e54856a-026d-4d75-84d8-3cfb9d14d6dc',
+            access_key: '8dc1c8ea-9765-4446-9453-5a73bda26924',
             subject: `New Studio Inquiry from ${formData.name}`,
             from_name: 'NabVerse Contact Portal',
             name: formData.name,
