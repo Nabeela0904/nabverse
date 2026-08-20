@@ -97,16 +97,27 @@ export const BookConsultation: React.FC = () => {
       formPayload.append('scheduled_time', selectedTime);
       formPayload.append('message', clientInfo.message || 'N/A');
 
+      const mailSubject = encodeURIComponent(`1:1 Strategy Booking from ${clientInfo.name}`);
+      const mailBody = encodeURIComponent(
+        `NEW 1:1 STRATEGY SESSION BOOKING\n` +
+        `----------------------------------------\n` +
+        `Client Name: ${clientInfo.name}\n` +
+        `Client Email: ${clientInfo.email}\n` +
+        `Company: ${clientInfo.company || 'N/A'}\n` +
+        `Scheduled Day: ${selectedDate}\n` +
+        `Scheduled Time: ${selectedTime}\n` +
+        `Project Goals:\n${clientInfo.message || 'N/A'}\n`
+      );
+
       try {
-        const response = await fetch('https://api.web3forms.com/submit', {
+        await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           body: formPayload
         });
-        const resData = await response.json();
-        console.log('Web3Forms booking response:', resData);
       } catch (err) {
         console.error('Web3Forms submit error:', err);
       } finally {
+        window.open(`mailto:nabverse8@gmail.com?subject=${mailSubject}&body=${mailBody}`, '_blank');
         setSubmitting(false);
         setBooked(true);
         confetti({ particleCount: 80, spread: 90, origin: { y: 0.7 } });

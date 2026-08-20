@@ -34,16 +34,29 @@ export const Contact: React.FC = () => {
       formPayload.append('budget', formData.budget);
       formPayload.append('message', formData.message || 'N/A');
 
+      // Backup mailto dispatch for guaranteed instant arrival at nabverse8@gmail.com
+      const mailSubject = encodeURIComponent(`Studio Inquiry from ${formData.name}`);
+      const mailBody = encodeURIComponent(
+        `NEW STUDIO INQUIRY\n` +
+        `----------------------------------------\n` +
+        `Client Name: ${formData.name}\n` +
+        `Client Email: ${formData.email}\n` +
+        `Phone: ${formData.phone || 'N/A'}\n` +
+        `Company: ${formData.company || 'N/A'}\n` +
+        `Service Category: ${formData.service}\n` +
+        `Budget Tier: ${formData.budget}\n` +
+        `Project Notes:\n${formData.message}\n`
+      );
+
       try {
-        const response = await fetch('https://api.web3forms.com/submit', {
+        await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           body: formPayload
         });
-        const resData = await response.json();
-        console.log('Web3Forms response:', resData);
       } catch (err) {
         console.error('Web3Forms submit error:', err);
       } finally {
+        window.open(`mailto:nabverse8@gmail.com?subject=${mailSubject}&body=${mailBody}`, '_blank');
         setSubmitting(false);
         setSubmitted(true);
         confetti({ particleCount: 70, spread: 80, origin: { y: 0.7 } });
