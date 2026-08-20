@@ -110,6 +110,14 @@ export const PRICING_TIERS: PricingTier[] = [
 
 export const TESTIMONIALS = [
   {
+    quote: "This invitation is the best...I was so pleased with it and really loved the way it created a royal and unique look to my invitation.. everyone was astonished by it and kept telling me that they had never seen an invitation as such.. it's totally worth it and I thank Nabeela heartfully for creating such a wonderful invitation",
+    author: "Shoaib & Zeenath",
+    role: "Bride & Groom",
+    company: "Royal Digital Invitation",
+    image: "/images/client_feedback_shoaib.jpg",
+    rating: 5
+  },
+  {
     quote: "NabVerse didn't just build us a website; they transformed our entire digital acquisition pipeline. Direct online reservations jumped 215% and third-party fees were cut completely.",
     author: "Chef Antoine Laurent",
     role: "Executive Chef & Owner",

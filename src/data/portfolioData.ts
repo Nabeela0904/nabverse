@@ -47,10 +47,10 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     interactiveDemoType: 'web-showcase',
     featured: true,
     testimonial: {
-      quote: 'Our guests were blown away by the digital wedding invitation! NabVerse created an unforgettable experience that made our special day even more magical.',
+      quote: "This invitation is the best...I was so pleased with it and really loved the way it created a royal and unique look to my invitation.. everyone was astonished by it and kept telling me that they had never seen an invitation as such.. it's totally worth it and I thank Nabeela heartfully for creating such a wonderful invitation",
       author: 'Shoaib & Zeenath',
       role: 'Bride & Groom',
-      company: 'Wedding Celebration'
+      company: 'Royal Digital Invitation'
     },
     imageAccent: 'from-amber-500/25 via-pink-500/20 to-purple-600/25',
     liveUrl: 'https://suhelandnasreenweddinginvitation.netlify.app/'
