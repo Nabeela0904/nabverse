@@ -91,6 +91,7 @@ export const BookConsultation: React.FC = () => {
       formPayload.append('from_name', 'NabVerse Booking Engine');
       formPayload.append('name', clientInfo.name);
       formPayload.append('email', clientInfo.email);
+      formPayload.append('replyto', clientInfo.email);
       formPayload.append('company', clientInfo.company || 'N/A');
       formPayload.append('scheduled_day', selectedDate);
       formPayload.append('scheduled_time', selectedTime);

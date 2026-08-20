@@ -27,6 +27,7 @@ export const Contact: React.FC = () => {
       formPayload.append('from_name', 'NabVerse Studio Contact');
       formPayload.append('name', formData.name);
       formPayload.append('email', formData.email);
+      formPayload.append('replyto', formData.email);
       formPayload.append('phone', formData.phone || 'N/A');
       formPayload.append('company', formData.company || 'N/A');
       formPayload.append('service', formData.service);
