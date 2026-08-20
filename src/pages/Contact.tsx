@@ -14,27 +14,40 @@ export const Contact: React.FC = () => {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.name && formData.email) {
-      setSubmitted(true);
-      confetti({ particleCount: 70, spread: 80, origin: { y: 0.7 } });
+      setSubmitting(true);
 
-      const mailSubject = encodeURIComponent(`New Studio Inquiry from ${formData.name}`);
-      const mailBody = encodeURIComponent(
-        `NEW STUDIO INQUIRY\n` +
-        `----------------------------------------\n` +
-        `Name: ${formData.name}\n` +
-        `Email: ${formData.email}\n` +
-        `Phone: ${formData.phone || 'N/A'}\n` +
-        `Company: ${formData.company || 'N/A'}\n` +
-        `Service Category: ${formData.service}\n` +
-        `Budget Tier: ${formData.budget}\n` +
-        `Project Notes:\n${formData.message}\n\n` +
-        `Sent to: nabverse8@gmail.com`
-      );
-
-      window.open(`mailto:nabverse8@gmail.com?subject=${mailSubject}&body=${mailBody}`, '_blank');
+      try {
+        await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json'
+          },
+          body: JSON.stringify({
+            access_key: '9e54856a-026d-4d75-84d8-3cfb9d14d6dc',
+            subject: `New Studio Inquiry from ${formData.name}`,
+            from_name: 'NabVerse Contact Portal',
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone || 'N/A',
+            company: formData.company || 'N/A',
+            service: formData.service,
+            budget: formData.budget,
+            message: formData.message || 'N/A'
+          })
+        });
+      } catch (err) {
+        console.error('Web3Forms submit error:', err);
+      } finally {
+        setSubmitting(false);
+        setSubmitted(true);
+        confetti({ particleCount: 70, spread: 80, origin: { y: 0.7 } });
+      }
     }
   };
 
@@ -214,10 +227,11 @@ export const Contact: React.FC = () => {
 
               <button
                 type="submit"
-                className="btn-primary w-full"
+                disabled={submitting}
+                className="btn-primary w-full flex items-center justify-center gap-2 disabled:opacity-50"
               >
                 <Send className="w-4 h-4" />
-                <span>Submit Inquiry for Review</span>
+                <span>{submitting ? 'Dispatching Inquiry...' : 'Submit Inquiry for Review'}</span>
               </button>
             </form>
           )}

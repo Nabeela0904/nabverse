@@ -78,28 +78,39 @@ export const BookConsultation: React.FC = () => {
     document.body.removeChild(link);
   };
 
-  const handleBook = (e: React.FormEvent) => {
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleBook = async (e: React.FormEvent) => {
     e.preventDefault();
     if (clientInfo.name && clientInfo.email) {
-      setBooked(true);
-      confetti({ particleCount: 80, spread: 90, origin: { y: 0.7 } });
+      setSubmitting(true);
 
-      // Construct mailto link to send email to nabverse8@gmail.com
-      const mailSubject = encodeURIComponent(`New 1:1 Booking Request: ${clientInfo.name}`);
-      const mailBody = encodeURIComponent(
-        `NEW 1:1 CONSULTATION BOOKING REQUEST\n` +
-        `----------------------------------------\n` +
-        `Client Name: ${clientInfo.name}\n` +
-        `Client Email: ${clientInfo.email}\n` +
-        `Company / Project: ${clientInfo.company || 'N/A'}\n` +
-        `Scheduled Date: ${selectedDate}\n` +
-        `Scheduled Time: ${selectedTime}\n` +
-        `Notes / Message: ${clientInfo.message || 'N/A'}\n\n` +
-        `Sent to: nabverse8@gmail.com`
-      );
-
-      // Open mailto link in window to trigger email dispatch
-      window.open(`mailto:nabverse8@gmail.com?subject=${mailSubject}&body=${mailBody}`, '_blank');
+      try {
+        await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json'
+          },
+          body: JSON.stringify({
+            access_key: '9e54856a-026d-4d75-84d8-3cfb9d14d6dc',
+            subject: `New 1:1 Strategy Booking: ${clientInfo.name}`,
+            from_name: 'NabVerse Booking Engine',
+            name: clientInfo.name,
+            email: clientInfo.email,
+            company: clientInfo.company || 'N/A',
+            scheduled_day: selectedDate,
+            scheduled_time: selectedTime,
+            message: clientInfo.message || 'N/A'
+          })
+        });
+      } catch (err) {
+        console.error('Web3Forms submit error:', err);
+      } finally {
+        setSubmitting(false);
+        setBooked(true);
+        confetti({ particleCount: 80, spread: 90, origin: { y: 0.7 } });
+      }
     }
   };
 
@@ -275,9 +286,10 @@ export const BookConsultation: React.FC = () => {
 
               <button
                 type="submit"
-                className="btn-primary w-full mt-4"
+                disabled={submitting}
+                className="btn-primary w-full mt-4 flex items-center justify-center gap-2 disabled:opacity-50"
               >
-                <span>Confirm Strategy Booking</span>
+                <span>{submitting ? 'Dispatching Booking Details...' : 'Confirm Strategy Booking'}</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </form>
