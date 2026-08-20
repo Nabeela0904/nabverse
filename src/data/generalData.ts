@@ -118,43 +118,11 @@ export const TESTIMONIALS = [
     rating: 5
   },
   {
-    quote: "Working with Nabeela was easily the best experience I’ve had with a freelance developer. From our first call, communication was clear, proactive, and jargon-free. I was never left guessing about timelines or progress. When standard templates couldn't handle our project's unique requirements, they built robust, custom coded features that run seamlessly and load at lightning speed. Their deep technical skill, combined with an exceptional eye for detail and reliability, made the entire build effortless. If you need clean, custom code and a developer who genuinely takes ownership of the outcome, look no further.",
+    quote: "Working with Nabeela was easily the best experience I’ve had with a developer. Communication was clear, proactive, and when standard templates couldn't handle our requirements, she built robust custom features that run seamlessly at lightning speed. If you need clean custom code and someone who genuinely takes ownership, look no further.",
     author: "Suhail",
     role: "Website Building Client",
     company: "Custom Web Application",
     useIcon: true,
-    rating: 5
-  },
-  {
-    quote: "NabVerse didn't just build us a website; they transformed our entire digital acquisition pipeline. Direct online reservations jumped 215% and third-party fees were cut completely.",
-    author: "Chef Antoine Laurent",
-    role: "Executive Chef & Owner",
-    company: "Gourmet Bistro Group",
-    image: "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=150&auto=format&fit=crop&q=80",
-    rating: 5
-  },
-  {
-    quote: "The Power BI executive suite built by NabVerse gives our C-suite total real-time clarity across $45M in sales operations. What used to take 15 hours weekly is now instant.",
-    author: "Marcus Brody",
-    role: "Chief Revenue Officer",
-    company: "Nexus Global SaaS",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
-    rating: 5
-  },
-  {
-    quote: "The level of design aesthetics and technical precision is unmatched. They delivered an Awwwards-quality corporate portal that established our firm as a global authority.",
-    author: "Jonathan Sterling",
-    role: "VP Corporate Communications",
-    company: "Aegis Global Holdings",
-    useIcon: true,
-    rating: 5
-  },
-  {
-    quote: "The HIPAA-compliant telemedicine web portal they built handles 50,000+ patient consults with zero downtime. NabVerse is our trusted technology partner.",
-    author: "Dr. Elena Rostova",
-    role: "Chief Medical Officer",
-    company: "ApexCare Health System",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80",
     rating: 5
   }
 ];
