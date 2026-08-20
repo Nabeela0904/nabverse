@@ -21,26 +21,25 @@ export const Contact: React.FC = () => {
     if (formData.name && formData.email) {
       setSubmitting(true);
 
+      const formPayload = new FormData();
+      formPayload.append('access_key', '8dc1c8ea-9765-4446-9453-5a73bda26924');
+      formPayload.append('subject', `New Studio Inquiry from ${formData.name}`);
+      formPayload.append('from_name', 'NabVerse Studio Contact');
+      formPayload.append('name', formData.name);
+      formPayload.append('email', formData.email);
+      formPayload.append('phone', formData.phone || 'N/A');
+      formPayload.append('company', formData.company || 'N/A');
+      formPayload.append('service', formData.service);
+      formPayload.append('budget', formData.budget);
+      formPayload.append('message', formData.message || 'N/A');
+
       try {
-        await fetch('https://api.web3forms.com/submit', {
+        const response = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json'
-          },
-          body: JSON.stringify({
-            access_key: '8dc1c8ea-9765-4446-9453-5a73bda26924',
-            subject: `New Studio Inquiry from ${formData.name}`,
-            from_name: 'NabVerse Contact Portal',
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone || 'N/A',
-            company: formData.company || 'N/A',
-            service: formData.service,
-            budget: formData.budget,
-            message: formData.message || 'N/A'
-          })
+          body: formPayload
         });
+        const resData = await response.json();
+        console.log('Web3Forms response:', resData);
       } catch (err) {
         console.error('Web3Forms submit error:', err);
       } finally {

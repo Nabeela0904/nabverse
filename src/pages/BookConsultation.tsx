@@ -85,25 +85,24 @@ export const BookConsultation: React.FC = () => {
     if (clientInfo.name && clientInfo.email) {
       setSubmitting(true);
 
+      const formPayload = new FormData();
+      formPayload.append('access_key', '9e54856a-026d-4d75-84d8-3cfb9d14d6dc');
+      formPayload.append('subject', `New 1:1 Strategy Booking: ${clientInfo.name}`);
+      formPayload.append('from_name', 'NabVerse Booking Engine');
+      formPayload.append('name', clientInfo.name);
+      formPayload.append('email', clientInfo.email);
+      formPayload.append('company', clientInfo.company || 'N/A');
+      formPayload.append('scheduled_day', selectedDate);
+      formPayload.append('scheduled_time', selectedTime);
+      formPayload.append('message', clientInfo.message || 'N/A');
+
       try {
-        await fetch('https://api.web3forms.com/submit', {
+        const response = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json'
-          },
-          body: JSON.stringify({
-            access_key: '9e54856a-026d-4d75-84d8-3cfb9d14d6dc',
-            subject: `New 1:1 Strategy Booking: ${clientInfo.name}`,
-            from_name: 'NabVerse Booking Engine',
-            name: clientInfo.name,
-            email: clientInfo.email,
-            company: clientInfo.company || 'N/A',
-            scheduled_day: selectedDate,
-            scheduled_time: selectedTime,
-            message: clientInfo.message || 'N/A'
-          })
+          body: formPayload
         });
+        const resData = await response.json();
+        console.log('Web3Forms booking response:', resData);
       } catch (err) {
         console.error('Web3Forms submit error:', err);
       } finally {
