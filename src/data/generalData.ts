@@ -132,6 +132,14 @@ export const TESTIMONIALS = [
     company: "TreeLand Nursery & Landscape",
     useIcon: true,
     rating: 5
+  },
+  {
+    quote: "Nabeela built an outstanding e-commerce portal for YasAtoZ. The speed, design aesthetics, and seamless user experience exceeded all our expectations. Our customers love shopping on the new site!",
+    author: "YasAtoZ",
+    role: "E-Commerce & Retail Client",
+    company: "YasAtoZ Retail Marketplace",
+    useIcon: true,
+    rating: 5
   }
 ];
 

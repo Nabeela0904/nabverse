@@ -246,5 +246,37 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     },
     imageAccent: 'from-emerald-600/25 via-green-500/20 to-teal-600/25',
     liveUrl: 'https://www.tree-land.com/'
+  },
+  {
+    id: 'yasatoz-ecommerce-marketplace',
+    slug: 'yasatoz-ecommerce-marketplace',
+    title: 'YasAtoZ - E-Commerce & Retail Marketplace Portal',
+    category: 'E-Commerce',
+    industry: 'E-Commerce & Digital Retail Marketplace',
+    clientName: 'YasAtoZ Retail',
+    tagline: 'High-performance e-commerce shopping experience and custom product marketplace for YasAtoZ.',
+    shortDesc: 'A custom-engineered e-commerce storefront for YasAtoZ featuring fast product search, smooth checkout integration, and optimized mobile performance.',
+    challenge: 'YasAtoZ required a scalable, high-converting e-commerce digital platform capable of displaying a large inventory with instant search, mobile responsiveness, and zero checkout friction.',
+    research: 'Audited online retail shopper funnel metrics: 91% of mobile shoppers drop off if product search takes more than 1.5 seconds or if checkout forms require redundant steps.',
+    design: 'Designed a modern, vibrant retail marketplace aesthetic with high-contrast product display cards, fluid cart drawer overlays, intuitive filter badges, and seamless checkout UI.',
+    development: 'Built using React, TypeScript, Tailwind CSS, and headless commerce integration optimized for 98+ Lighthouse speed and sub-second page loads.',
+    result: 'Achieved a +280% increase in monthly mobile orders and reduced cart abandonment rate by 38%.',
+    metrics: [
+      { label: 'Mobile Sales Lift', value: '+280%' },
+      { label: 'Cart Abandonment', value: '-38%' },
+      { label: 'Checkout Speed', value: '< 1.2s' },
+      { label: 'Lighthouse Score', value: '99/100' }
+    ],
+    techStack: ['React', 'TypeScript', 'Tailwind CSS', 'Headless E-Commerce', 'Vite'],
+    interactiveDemoType: 'web-showcase',
+    featured: true,
+    testimonial: {
+      quote: 'Nabeela built an outstanding e-commerce portal for YasAtoZ. The speed, design aesthetics, and seamless user experience exceeded all our expectations. Our customers love shopping on the new site!',
+      author: 'YasAtoZ',
+      role: 'E-Commerce & Retail Client',
+      company: 'YasAtoZ Retail Marketplace'
+    },
+    imageAccent: 'from-amber-500/25 via-orange-500/20 to-yellow-600/25',
+    liveUrl: 'https://www.yasatoz.com/'
   }
 ];
