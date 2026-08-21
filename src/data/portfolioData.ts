@@ -56,36 +56,68 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     liveUrl: 'https://suhelandnasreenweddinginvitation.netlify.app/'
   },
   {
-    id: 'interactive-client-video-showcase',
-    slug: 'interactive-client-video-showcase',
-    title: 'Interactive Client Portfolio & Video Walkthrough App',
-    category: 'Web Applications',
-    industry: 'Digital Media & Personal Branding',
-    clientName: 'Exclusive Client Digital Project',
-    tagline: 'Custom interactive digital media showcase featuring video walkthroughs, responsive UI components, and dynamic client portfolio modules.',
-    shortDesc: 'A modern web application featuring interactive video showcases, high-performance responsive UI, and dynamic client engagement workflows.',
-    challenge: 'Demonstrating complex interactive digital products dynamically to prospective clients required high-resolution video streaming without sacrificing mobile page speed or UI responsiveness.',
-    research: 'Analyzed user engagement metrics: 90% of prospective enterprise clients retain information 4x better when presented with interactive video walkthroughs and live feature demonstrations.',
-    design: 'Created a sleek dark cyber aesthetic with glassmorphism cards, glowing gradient badges, high-contrast typography, and smooth video playback controls.',
-    development: 'Engineered with React, TypeScript, Tailwind CSS, and HTML5 video streaming optimized for zero layout shift and 99+ Lighthouse performance.',
-    result: 'Increased client engagement by 320% and boosted inquiry conversion rate by 4.5x.',
+    id: 'yasatoz-ecommerce-marketplace',
+    slug: 'yasatoz-ecommerce-marketplace',
+    title: 'YasAtoZ - E-Commerce & Retail Marketplace Portal',
+    category: 'E-Commerce',
+    industry: 'E-Commerce & Digital Retail Marketplace',
+    clientName: 'YasAtoZ Retail',
+    tagline: 'High-performance e-commerce shopping experience and custom product marketplace for YasAtoZ.',
+    shortDesc: 'A custom-engineered e-commerce storefront for YasAtoZ featuring fast product search, smooth checkout integration, and optimized mobile performance.',
+    challenge: 'YasAtoZ required a scalable, high-converting e-commerce digital platform capable of displaying a large inventory with instant search, mobile responsiveness, and zero checkout friction.',
+    research: 'Audited online retail shopper funnel metrics: 91% of mobile shoppers drop off if product search takes more than 1.5 seconds or if checkout forms require redundant steps.',
+    design: 'Designed a modern, vibrant retail marketplace aesthetic with high-contrast product display cards, fluid cart drawer overlays, intuitive filter badges, and seamless checkout UI.',
+    development: 'Built using React, TypeScript, Tailwind CSS, and headless commerce integration optimized for 98+ Lighthouse speed and sub-second page loads.',
+    result: 'Achieved a +280% increase in monthly mobile orders and reduced cart abandonment rate by 38%.',
     metrics: [
-      { label: 'Engagement Lift', value: '+320%' },
-      { label: 'Inquiry Conversion', value: '4.5x' },
-      { label: 'Speed Score', value: '99/100' },
-      { label: 'First Paint', value: '< 0.8s' }
+      { label: 'Mobile Sales Lift', value: '+280%' },
+      { label: 'Cart Abandonment', value: '-38%' },
+      { label: 'Checkout Speed', value: '< 1.2s' },
+      { label: 'Lighthouse Score', value: '99/100' }
     ],
-    techStack: ['React', 'TypeScript', 'Tailwind CSS', 'HTML5 Video', 'Vite'],
+    techStack: ['React', 'TypeScript', 'Tailwind CSS', 'Headless E-Commerce', 'Vite'],
     interactiveDemoType: 'web-showcase',
     featured: true,
     testimonial: {
-      quote: 'The video showcase web app built by NabVerse presented our work with stunning clarity and elegance. Clients love the experience!',
-      author: 'Client Executive',
-      role: 'Project Lead',
-      company: 'Digital Media Client'
+      quote: 'Nabeela built an outstanding e-commerce portal for YasAtoZ. The speed, design aesthetics, and seamless user experience exceeded all our expectations. Our customers love shopping on the new site!',
+      author: 'YasAtoZ',
+      role: 'E-Commerce & Retail Client',
+      company: 'YasAtoZ Retail Marketplace'
     },
-    imageAccent: 'from-cyan-500/25 via-purple-500/20 to-pink-600/25',
-    videoUrl: '/project/Screen Recording 2026-08-06 194843.mp4'
+    imageAccent: 'from-amber-500/25 via-orange-500/20 to-yellow-600/25',
+    liveUrl: 'https://www.yasatoz.com/'
+  },
+  {
+    id: 'treeland-nursery-landscape',
+    slug: 'treeland-nursery-landscape',
+    title: 'TreeLand Nursery - Premier Landscape & Botanical Experience',
+    category: 'Web Applications',
+    industry: 'Landscape Architecture & Botanical Nursery',
+    clientName: 'TreeLand Nursery & Landscape',
+    tagline: 'High-performance digital portal and botanical catalog experience for TreeLand Nursery.',
+    shortDesc: 'A custom-designed, responsive web portal for TreeLand Nursery featuring an interactive tree catalog, landscape project estimator, and fast inquiry workflows.',
+    challenge: 'TreeLand Nursery required a modern, mobile-first web application to showcase their vast inventory of trees, palms, and landscaping services with quick quote request capabilities for homeowners and commercial contractors.',
+    research: 'Audited nursery visitor behavior: 88% of landscaping customers search for specific tree varieties, size specifications, and planting services on mobile devices before visiting in person.',
+    design: 'Crafted a lush botanical aesthetic with nature-inspired color accents, high-resolution plant imagery cards, intuitive category filtering, and clean typography.',
+    development: 'Engineered with modern responsive architecture, fast image optimization, intuitive catalog navigation, and automated lead capture forms.',
+    result: 'Increased online quote inquiries by +245% and reduced customer bounce rate by 42% within the first 60 days.',
+    metrics: [
+      { label: 'Quote Inquiries', value: '+245%' },
+      { label: 'Mobile Speed Score', value: '98/100' },
+      { label: 'Bounce Rate Cut', value: '-42%' },
+      { label: 'Catalog Time', value: '4.2 Mins' }
+    ],
+    techStack: ['React', 'TypeScript', 'Tailwind CSS', 'Vite', 'Schema.org'],
+    interactiveDemoType: 'web-showcase',
+    featured: true,
+    testimonial: {
+      quote: "Working with Nabeela on TreeLand's digital portal was an incredible experience. She brought our tree nursery and landscaping services to life online with speed, precision, and an exceptional eye for design!",
+      author: 'TreeLand Nursery',
+      role: 'Landscape & Botanical Client',
+      company: 'TreeLand Nursery & Landscape'
+    },
+    imageAccent: 'from-emerald-600/25 via-green-500/20 to-teal-600/25',
+    liveUrl: 'https://www.tree-land.com/'
   },
   {
     id: 'suhel-nasreen-wedding-invitation',
@@ -118,6 +150,38 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     },
     imageAccent: 'from-pink-500/25 via-purple-500/20 to-amber-600/25',
     liveUrl: 'https://suhelandnasreenweddinginvitation.netlify.app/'
+  },
+  {
+    id: 'interactive-client-video-showcase',
+    slug: 'interactive-client-video-showcase',
+    title: 'Interactive Client Portfolio & Video Walkthrough App',
+    category: 'Web Applications',
+    industry: 'Digital Media & Personal Branding',
+    clientName: 'Exclusive Client Digital Project',
+    tagline: 'Custom interactive digital media showcase featuring video walkthroughs, responsive UI components, and dynamic client portfolio modules.',
+    shortDesc: 'A modern web application featuring interactive video showcases, high-performance responsive UI, and dynamic client engagement workflows.',
+    challenge: 'Demonstrating complex interactive digital products dynamically to prospective clients required high-resolution video streaming without sacrificing mobile page speed or UI responsiveness.',
+    research: 'Analyzed user engagement metrics: 90% of prospective enterprise clients retain information 4x better when presented with interactive video walkthroughs and live feature demonstrations.',
+    design: 'Created a sleek dark cyber aesthetic with glassmorphism cards, glowing gradient badges, high-contrast typography, and smooth video playback controls.',
+    development: 'Engineered with React, TypeScript, Tailwind CSS, and HTML5 video streaming optimized for zero layout shift and 99+ Lighthouse performance.',
+    result: 'Increased client engagement by 320% and boosted inquiry conversion rate by 4.5x.',
+    metrics: [
+      { label: 'Engagement Lift', value: '+320%' },
+      { label: 'Inquiry Conversion', value: '4.5x' },
+      { label: 'Speed Score', value: '99/100' },
+      { label: 'First Paint', value: '< 0.8s' }
+    ],
+    techStack: ['React', 'TypeScript', 'Tailwind CSS', 'HTML5 Video', 'Vite'],
+    interactiveDemoType: 'web-showcase',
+    featured: true,
+    testimonial: {
+      quote: 'The video showcase web app built by NabVerse presented our work with stunning clarity and elegance. Clients love the experience!',
+      author: 'Client Executive',
+      role: 'Project Lead',
+      company: 'Digital Media Client'
+    },
+    imageAccent: 'from-cyan-500/25 via-purple-500/20 to-pink-600/25',
+    videoUrl: '/project/Screen Recording 2026-08-06 194843.mp4'
   },
   {
     id: 'ab-testing-experimentation-platform',
@@ -214,69 +278,5 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     },
     imageAccent: 'from-pink-500/25 via-purple-500/20 to-indigo-600/25',
     liveUrl: 'https://github.com/Nabeela0904/Employee-Attrition-Analysis-for-HR-Insights'
-  },
-  {
-    id: 'treeland-nursery-landscape',
-    slug: 'treeland-nursery-landscape',
-    title: 'TreeLand Nursery - Premier Landscape & Botanical Experience',
-    category: 'Web Applications',
-    industry: 'Landscape Architecture & Botanical Nursery',
-    clientName: 'TreeLand Nursery & Landscape',
-    tagline: 'High-performance digital portal and botanical catalog experience for TreeLand Nursery.',
-    shortDesc: 'A custom-designed, responsive web portal for TreeLand Nursery featuring an interactive tree catalog, landscape project estimator, and fast inquiry workflows.',
-    challenge: 'TreeLand Nursery required a modern, mobile-first web application to showcase their vast inventory of trees, palms, and landscaping services with quick quote request capabilities for homeowners and commercial contractors.',
-    research: 'Audited nursery visitor behavior: 88% of landscaping customers search for specific tree varieties, size specifications, and planting services on mobile devices before visiting in person.',
-    design: 'Crafted a lush botanical aesthetic with nature-inspired color accents, high-resolution plant imagery cards, intuitive category filtering, and clean typography.',
-    development: 'Engineered with modern responsive architecture, fast image optimization, intuitive catalog navigation, and automated lead capture forms.',
-    result: 'Increased online quote inquiries by +245% and reduced customer bounce rate by 42% within the first 60 days.',
-    metrics: [
-      { label: 'Quote Inquiries', value: '+245%' },
-      { label: 'Mobile Speed Score', value: '98/100' },
-      { label: 'Bounce Rate Cut', value: '-42%' },
-      { label: 'Catalog Time', value: '4.2 Mins' }
-    ],
-    techStack: ['React', 'TypeScript', 'Tailwind CSS', 'Vite', 'Schema.org'],
-    interactiveDemoType: 'web-showcase',
-    featured: true,
-    testimonial: {
-      quote: "Working with Nabeela on TreeLand's digital portal was an incredible experience. She brought our tree nursery and landscaping services to life online with speed, precision, and an exceptional eye for design!",
-      author: 'TreeLand Nursery',
-      role: 'Landscape & Botanical Client',
-      company: 'TreeLand Nursery & Landscape'
-    },
-    imageAccent: 'from-emerald-600/25 via-green-500/20 to-teal-600/25',
-    liveUrl: 'https://www.tree-land.com/'
-  },
-  {
-    id: 'yasatoz-ecommerce-marketplace',
-    slug: 'yasatoz-ecommerce-marketplace',
-    title: 'YasAtoZ - E-Commerce & Retail Marketplace Portal',
-    category: 'E-Commerce',
-    industry: 'E-Commerce & Digital Retail Marketplace',
-    clientName: 'YasAtoZ Retail',
-    tagline: 'High-performance e-commerce shopping experience and custom product marketplace for YasAtoZ.',
-    shortDesc: 'A custom-engineered e-commerce storefront for YasAtoZ featuring fast product search, smooth checkout integration, and optimized mobile performance.',
-    challenge: 'YasAtoZ required a scalable, high-converting e-commerce digital platform capable of displaying a large inventory with instant search, mobile responsiveness, and zero checkout friction.',
-    research: 'Audited online retail shopper funnel metrics: 91% of mobile shoppers drop off if product search takes more than 1.5 seconds or if checkout forms require redundant steps.',
-    design: 'Designed a modern, vibrant retail marketplace aesthetic with high-contrast product display cards, fluid cart drawer overlays, intuitive filter badges, and seamless checkout UI.',
-    development: 'Built using React, TypeScript, Tailwind CSS, and headless commerce integration optimized for 98+ Lighthouse speed and sub-second page loads.',
-    result: 'Achieved a +280% increase in monthly mobile orders and reduced cart abandonment rate by 38%.',
-    metrics: [
-      { label: 'Mobile Sales Lift', value: '+280%' },
-      { label: 'Cart Abandonment', value: '-38%' },
-      { label: 'Checkout Speed', value: '< 1.2s' },
-      { label: 'Lighthouse Score', value: '99/100' }
-    ],
-    techStack: ['React', 'TypeScript', 'Tailwind CSS', 'Headless E-Commerce', 'Vite'],
-    interactiveDemoType: 'web-showcase',
-    featured: true,
-    testimonial: {
-      quote: 'Nabeela built an outstanding e-commerce portal for YasAtoZ. The speed, design aesthetics, and seamless user experience exceeded all our expectations. Our customers love shopping on the new site!',
-      author: 'YasAtoZ',
-      role: 'E-Commerce & Retail Client',
-      company: 'YasAtoZ Retail Marketplace'
-    },
-    imageAccent: 'from-amber-500/25 via-orange-500/20 to-yellow-600/25',
-    liveUrl: 'https://www.yasatoz.com/'
   }
 ];
