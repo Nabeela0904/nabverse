@@ -124,6 +124,14 @@ export const TESTIMONIALS = [
     company: "Custom Web Application",
     useIcon: true,
     rating: 5
+  },
+  {
+    quote: "Working with Nabeela on TreeLand's digital portal was an incredible experience. She brought our tree nursery and landscaping services to life online with speed, precision, and an exceptional eye for design!",
+    author: "TreeLand Nursery",
+    role: "Landscape & Botanical Client",
+    company: "TreeLand Nursery & Landscape",
+    useIcon: true,
+    rating: 5
   }
 ];
 

@@ -214,5 +214,37 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     },
     imageAccent: 'from-pink-500/25 via-purple-500/20 to-indigo-600/25',
     liveUrl: 'https://github.com/Nabeela0904/Employee-Attrition-Analysis-for-HR-Insights'
+  },
+  {
+    id: 'treeland-nursery-landscape',
+    slug: 'treeland-nursery-landscape',
+    title: 'TreeLand Nursery - Premier Landscape & Botanical Experience',
+    category: 'Web Applications',
+    industry: 'Landscape Architecture & Botanical Nursery',
+    clientName: 'TreeLand Nursery & Landscape',
+    tagline: 'High-performance digital portal and botanical catalog experience for TreeLand Nursery.',
+    shortDesc: 'A custom-designed, responsive web portal for TreeLand Nursery featuring an interactive tree catalog, landscape project estimator, and fast inquiry workflows.',
+    challenge: 'TreeLand Nursery required a modern, mobile-first web application to showcase their vast inventory of trees, palms, and landscaping services with quick quote request capabilities for homeowners and commercial contractors.',
+    research: 'Audited nursery visitor behavior: 88% of landscaping customers search for specific tree varieties, size specifications, and planting services on mobile devices before visiting in person.',
+    design: 'Crafted a lush botanical aesthetic with nature-inspired color accents, high-resolution plant imagery cards, intuitive category filtering, and clean typography.',
+    development: 'Engineered with modern responsive architecture, fast image optimization, intuitive catalog navigation, and automated lead capture forms.',
+    result: 'Increased online quote inquiries by +245% and reduced customer bounce rate by 42% within the first 60 days.',
+    metrics: [
+      { label: 'Quote Inquiries', value: '+245%' },
+      { label: 'Mobile Speed Score', value: '98/100' },
+      { label: 'Bounce Rate Cut', value: '-42%' },
+      { label: 'Catalog Time', value: '4.2 Mins' }
+    ],
+    techStack: ['React', 'TypeScript', 'Tailwind CSS', 'Vite', 'Schema.org'],
+    interactiveDemoType: 'web-showcase',
+    featured: true,
+    testimonial: {
+      quote: "Working with Nabeela on TreeLand's digital portal was an incredible experience. She brought our tree nursery and landscaping services to life online with speed, precision, and an exceptional eye for design!",
+      author: 'TreeLand Nursery',
+      role: 'Landscape & Botanical Client',
+      company: 'TreeLand Nursery & Landscape'
+    },
+    imageAccent: 'from-emerald-600/25 via-green-500/20 to-teal-600/25',
+    liveUrl: 'https://www.tree-land.com/'
   }
 ];
