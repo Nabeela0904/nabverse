@@ -53,7 +53,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
       company: 'Royal Digital Invitation'
     },
     imageAccent: 'from-amber-500/25 via-pink-500/20 to-purple-600/25',
-    liveUrl: 'https://shoaibandzeenathziyafatnama.netlify.app/invitation.html'
+    liveUrl: 'https://shoaibandzeenathziyafatnama.netlify.app/'
   },
   {
     id: 'yasatoz-ecommerce-marketplace',
